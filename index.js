@@ -34,5 +34,5 @@ app.listen(PORT,()=>{
 })
 
 app.use("/", (req,res)=>{
-    res.send({message:"<h1>Welcome to Karma"})
+    res.send("<h1>Welcome to Karma")
 })
