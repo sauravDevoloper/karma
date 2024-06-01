@@ -1,7 +1,7 @@
 const productModel = require("../Models/productModel")
 const firmModel = require("../Models/firmModel")
 const multer = require("multer");
-const { message } = require("prompt");
+
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {

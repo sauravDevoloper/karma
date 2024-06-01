@@ -1,4 +1,4 @@
-const { message } = require("prompt")
+
 const firmModel = require("../Models/firmModel")
 const vendorModel = require("../Models/vendorModel")
 const multer = require("multer")

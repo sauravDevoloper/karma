@@ -1,4 +1,4 @@
-const { message } = require("prompt")
+
 const vendorModel = require("../Models/vendorModel")
 const jwt = require("jsonwebtoken")
 const dotenv = require("dotenv")
