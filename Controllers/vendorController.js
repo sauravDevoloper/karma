@@ -15,7 +15,7 @@ const vendorRegister = async(req,res)=>{
 
         const vendorEmail = await vendorModel.findOne({email})
         if(vendorEmail){
-            return res.status(404).send({message:"email already taken"})
+            return res.status(400).send({message:"email already taken"})
         }
 
         const hashedpassword = await bcrypt.hash(password,10)
@@ -27,7 +27,7 @@ const vendorRegister = async(req,res)=>{
         })
 
         await newvendor.save()
-        return res.status(200).send({message:"vendor registered successfully"})
+        return res.status(201).send({message:"vendor registered successfully"})
     }
     catch(error){
 

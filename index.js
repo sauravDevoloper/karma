@@ -7,12 +7,13 @@ const productRoute = require("./Routes/productRoute")
 const cors = require("cors")
 
 
-
+const app = express()
 
 
 
 const PORT =  process.env.PORT||8000
 dotenv.config()
+app.use(cors())
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
@@ -23,8 +24,8 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 
-const app = express()
-app.use(cors())
+
+
 app.use(express.json())
 app.use("/vendor",vendorRoute)
 app.use("/firm",firmRoute)
