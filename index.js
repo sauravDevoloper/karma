@@ -4,6 +4,7 @@ const dotenv = require("dotenv")
 const vendorRoute = require("./Routes/vendorRoute")
 const firmRoute = require("./Routes/firmRoute")
 const productRoute = require("./Routes/productRoute")
+const cors = require("cors")
 
 
 
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use("/vendor",vendorRoute)
 app.use("/firm",firmRoute)
