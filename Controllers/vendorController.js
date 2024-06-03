@@ -51,7 +51,7 @@ const vendorLogin = async(req,res)=>{
 
         const vendorId = vendor._id
 
-        const token = jwt.sign({vendorId:vendor._id},secret)
+        const token = jwt.sign({vendorId:vendor._id},secret, {expiresIn:"1h"})
         res.status(200).send({message:"login success",token, vendorId})
 
 
