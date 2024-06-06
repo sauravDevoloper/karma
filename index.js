@@ -30,7 +30,7 @@ app.use(express.json())
 app.use("/vendor",vendorRoute)
 app.use("/firm",firmRoute)
 app.use("/product",productRoute)
-app.use("/uploads",express.static("uploads"))
+app.use('/uploads', express.static('uploads'));
 
 app.listen(PORT,()=>{
     console.log("server up and running")

@@ -1,4 +1,5 @@
 
+const { message } = require("prompt");
 const firmModel = require("../Models/firmModel")
 const vendorModel = require("../Models/vendorModel")
 const multer = require("multer")
@@ -29,6 +30,12 @@ const addfirm = async(req,res)=>{
             return res.status(404).send({message:"vendor not found"})
         }
 
+        if(vendor.firm.length > 0){
+
+            return res.status(400).send({message:"vendor should have only one firm"})
+        }
+
+
         const newfirm = new firmModel({
             firmname,
             Area,
@@ -40,9 +47,21 @@ const addfirm = async(req,res)=>{
         })
 
         const savedfirm = await newfirm.save()
+        const firmId = savedfirm._id
         vendor.firm.push(savedfirm)
         await vendor.save()
-        return res.status(200).send({message:"firm added successfully"})
+
+      
+
+
+
+
+
+
+
+
+
+        return res.status(200).send({message:"firm added successfully",firmId})
 
 
 
